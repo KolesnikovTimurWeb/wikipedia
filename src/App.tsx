@@ -21,6 +21,7 @@ function App() {
   const getPostsBtDateFunc = useCallback((value:string) => {
 
     getPostsByDate(value).then((data) => {
+      setLoading(true)
     if(data === undefined) return    setErr(true)
       setErr(false)
       dispatch(setEntities(data.articles))
@@ -28,8 +29,10 @@ function App() {
     });
   }, [])
   const getPostsFunc = useCallback(() => {
+    setLoading(true)
+
     getPosts().then((data) => {
-      if(data === undefined) return    setErr(true)
+      if(data === undefined) return  setErr(true)
         setErr(false)
       dispatch(setEntities(data.articles))
       setLoading(false)
@@ -43,15 +46,16 @@ function App() {
     <div className='main'>
       <h1>Fetch users by button</h1>
       {err && (
-        <div>
-          Too old data for posts
+        <div className='error'>
+          Error with back-end
         </div>
       )}
       {!loading && (
 
-        <div>
-        <input type="date" value={inputValue} onChange={(e)=>setInputValue(e.target.value)} placeholder='Write a date'/>
-        <button className='main_button' onClick={() => getPostsBtDateFunc(inputValue)}>Click to fetch post</button>
+        <div className='main_buttons'>
+        <input type="date" value={inputValue} onChange={(e)=>setInputValue(e.target.value)} className='date_input'/>
+        <button className='main_button' onClick={() => getPostsBtDateFunc(inputValue)}>{loading  ?  "Loading...." : "Click to fetch post"}
+      </button>
         </div>
       )}
 

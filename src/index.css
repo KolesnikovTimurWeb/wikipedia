@@ -86,3 +86,13 @@ h1{
   font-weight: 700;
   margin: 20px 0;
 }
+.main_buttons{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.date_input{
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
+}
