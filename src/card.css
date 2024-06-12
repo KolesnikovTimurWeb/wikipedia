@@ -1,0 +1,19 @@
+.card{
+   width: 100%;
+   max-width: 400px;
+   background: #fff;
+   border-radius: 10px;
+   padding: 10px;
+   color: #000;
+   margin: 10px 0;
+   text-wrap: wrap;
+   word-break: normal;
+
+}
+p{
+   word-break: break-word;
+}
+a{
+   font-size: 12px;
+   color: gray;
+}
